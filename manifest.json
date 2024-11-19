@@ -1,6 +1,6 @@
 {
   "name": "Sleep Paralysis Tracker",
-  "short_name": "SleepTracker",
+  "short_name": "Grand Habit",
   "description": "Track sleep paralysis episodes",
   "start_url": "index.html",
   "display": "standalone",
@@ -8,12 +8,12 @@
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "assets/images/icon-192x192.png",
+      "src": "./gsblogo.jpeg",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "assets/images/icon-512x512.png",
+      "src": "./gsblogo.jpeg",
       "sizes": "512x512",
       "type": "image/png"
     }
