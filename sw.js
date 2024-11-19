@@ -5,7 +5,8 @@ self.addEventListener('install', event => {
                 '/',
                 '/index.html',
                 '/details.html',
-                '/style.css',
+                '/styles.css', // Corrected path
+                '/rewards.html', // Added missing file
                 '/app.js',
                 '/manifest.json'
             ]);
