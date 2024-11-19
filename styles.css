@@ -17,6 +17,14 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
+.phone-frame-specific{
+    width: 1920px;
+    height: 1400px;
+    border-radius: 1px;
+    background-color: #b7b7b7;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
 
 .app-header {
     background-color: #ffffff;
