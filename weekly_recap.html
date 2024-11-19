@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Weekly Recap</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="app-header">
+            <h1>Weekly Recap</h1>
+        </div>
+        <canvas id="recapChart" style="width: 80%; height: 40%;"></canvas>
+
+        <!-- Chat Box Section -->
+        <div class="chat-box">
+            <h3>Ask a Question:</h3>
+            <select id="questionSelect" class="rounded-select">
+                <option value="">Select a question</option>
+                <option value="fastFoodTime">At what time of day did I eat out the most?</option>
+                <option value="mostExpensiveDay">Which day had the most expensive meal?</option>
+                <option value="dailyAverage">What was my average daily spending this week?</option>
+                <option value="savingTip">What category can I cut back on to save more?</option>
+            </select>
+            <button class="rounded-btn" onclick="getAnswer()">Submit</button>
+            <p id="chatResponse" class="response-text"></p>
+        </div>
+    </div>
+
+    <script>
+        // Data for the Weekly Recap Chart
+        const spendingData = [20, 50, 30, 80, 60, 40, 70]; // Example spending for Sun to Sat
+        const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+        // Detailed Spending Data for Each Day
+        const detailedSpending = {
+            'Sun': ['Shell: $20', 'Starbucks: $5'],
+            'Mon': ['Chick-fil-A: $10', 'Skylight Cinema: $15', 'Crisp: $25'],
+            'Tue': ['Whole Foods: $30'],
+            'Wed': ['Exxon: $50', 'Netflix: $10', 'Dinner: $20'],
+            'Thu': ['Groceries: $40', 'Lunch: $20'],
+            'Fri': ['Gas: $30', 'Coffee: $10'],
+            'Sat': ['Shopping: $50', 'Dinner: $20']
+        };
+
+        // Initialize the Line Chart
+        const recapCtx = document.getElementById('recapChart').getContext('2d');
+        new Chart(recapCtx, {
+            type: 'line',
+            data: {
+                labels: daysOfWeek,
+                datasets: [{
+                    label: 'Spending',
+                    data: spendingData,
+                    borderColor: '#B71C1C',
+                    fill: true,
+                    backgroundColor: 'rgba(183, 28, 28, 0.2)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        enabled: true,
+                        callbacks: {
+                            label: function(context) {
+                                const day = context.label; // Get the day (e.g., "Mon")
+                                const details = detailedSpending[day] || []; // Get spending details for the day
+                                return [`Total: $${context.raw}`].concat(details); // Combine total with details
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { display: true },
+                    y: { display: true, beginAtZero: true }
+                }
+            }
+        });
+
+        // Function to Get Chat Box Answer
+        function getAnswer() {
+            const question = document.getElementById('questionSelect').value;
+            const response = document.getElementById('chatResponse');
+
+            if (question === 'fastFoodTime') {
+                response.textContent = 'You spent the most on eating out during dinner time.';
+            } else if (question === 'mostExpensiveDay') {
+                response.textContent = 'The most expensive meal was on Wednesday, costing $50.';
+            } else if (question === 'dailyAverage') {
+                const totalSpending = spendingData.reduce((a, b) => a + b, 0);
+                const averageSpending = (totalSpending / spendingData.length).toFixed(2);
+                response.textContent = `Your average daily spending was $${averageSpending}.`;
+            } else if (question === 'savingTip') {
+                response.textContent = 'Consider cutting back on dining out to save more.';
+            } else {
+                response.textContent = 'Please select a question.';
+            }
+        }
+    </script>
+
+    <style>
+        .chat-box {
+            padding: 1px;
+            margin-top: 4px;
+        }
+
+        .rounded-select {
+            width: 100%;
+            padding: 5px;
+            border-radius: 7px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+
+        .rounded-btn {
+            width: 100%;
+            padding: 5px;
+            border-radius: 7px;
+            background-color: #B71C1C;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .rounded-btn:hover {
+            background-color: #8E1A1A;
+        }
+
+        .response-text {
+            color: #8E1A1A;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</body>
+</html>

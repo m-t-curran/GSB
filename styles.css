@@ -1,0 +1,125 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F5F5F5;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+}
+
+.phone-frame {
+    width: 375px;
+    height: 620px;
+    border-radius: 40px;
+    background-color: #b7b7b7;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.app-header {
+    background-color: #ffffff;
+    color: rgb(123, 4, 4);
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: calc(100% - 150px);
+    padding: 10px;
+}
+
+.home-btn {
+    width: 80%;
+    padding: 15px;
+    background-color: #910a0a;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px 0;
+    text-decoration: none; /* This removes the underline */
+}
+
+.home-btn:hover {
+    background-color: #8E1A1A;
+}
+#goalsChart {
+    max-width: 200px; /* Adjust width */
+    max-height: 200px; /* Adjust height */
+}
+
+.goal-input input {
+    border-radius: 15px; /* Makes the input boxes rounded */
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+#recapChart {
+    max-width: 350px;
+    max-height: 330px;
+}
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-top: 0px;
+    width: 100%;
+    max-width: 320px; /* Limit to phone screen size */
+    height: auto;
+}
+
+.rounded-select {
+    width: 90%; /* Fit within phone frame */
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.rounded-btn {
+    width: 50%; /* Fit within phone frame */
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #B71C1C;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.response-text {
+    color: white; /* Text color */
+    background-color: #fdfdfd; /* Maroon background */
+    border: 2px solid black; /* Black outline */
+    border-radius: 15px; /* Rounded corners */
+    padding: 10px; /* Space inside the box */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text */
+    width: 110%; /* Fit inside the phone screen */
+    max-width: 250px; /* Prevent it from getting too wide */
+    margin-top: 8px; /* Spacing above the box */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better appearance */
+}
+
+

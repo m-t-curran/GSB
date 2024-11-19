@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Spending Goals</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="app-header">
+            <h1>Spending Goals</h1>
+        </div>
+        <div class="goal-input-section">
+            <h2>Set Weekly Goals</h2>
+            <div class="goal-input">
+                <label for="foodGoal">Food Goal ($):</label>
+                <input type="number" id="foodGoal" placeholder="Enter goal for Food">
+            </div>
+            <div class="goal-input">
+                <label for="entertainmentGoal">Entertainment Goal ($):</label>
+                <input type="number" id="entertainmentGoal" placeholder="Enter goal for Entertainment">
+            </div>
+            <div class="goal-input">
+                <label for="groceryGoal">Grocery Goal ($):</label>
+                <input type="number" id="groceryGoal" placeholder="Enter goal for Groceries">
+            </div>
+            <div class="goal-input">
+                <label for="gasGoal">Gas Goal ($):</label>
+                <input type="number" id="gasGoal" placeholder="Enter goal for Gas">
+            </div>
+            <button onclick="saveGoals()">Save Goals</button>
+        </div>
+        
+        <!-- Overall Spending Goal Box -->
+        <div class="overall-goal-box">
+            <h3>Overall Weekly Spending Goal:</h3>
+            <p id="overallGoal">$0</p>
+        </div>
+
+        <!-- Doughnut Chart -->
+        <canvas id="goalsChart" style="width: 40%; height: 30%;"></canvas>
+    </div>
+    <script>
+        // Initialize the Doughnut Chart
+        const goalsCtx = document.getElementById('goalsChart').getContext('2d');
+        const goalsChart = new Chart(goalsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Food', 'Entertainment', 'Groceries', 'Gas'],
+                datasets: [{
+                    data: [0, 0, 0, 0], // Initial data placeholder
+                    backgroundColor: ['#B71C1C', '#FF6F61', '#D32F2F', '#7A0019']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { tooltip: { enabled: true } }
+            }
+        });
+
+        // Function to Save Goals and Update Chart
+        function saveGoals() {
+            const foodGoal = parseInt(document.getElementById('foodGoal').value) || 0;
+            const entertainmentGoal = parseInt(document.getElementById('entertainmentGoal').value) || 0;
+            const groceryGoal = parseInt(document.getElementById('groceryGoal').value) || 0;
+            const gasGoal = parseInt(document.getElementById('gasGoal').value) || 0;
+
+            // Calculate Overall Goal
+            const overallGoal = foodGoal + entertainmentGoal + groceryGoal + gasGoal;
+
+            // Update Overall Goal Box
+            document.getElementById('overallGoal').textContent = `$${overallGoal}`;
+
+            // Update Chart Data
+            goalsChart.data.datasets[0].data = [foodGoal, entertainmentGoal, groceryGoal, gasGoal];
+            goalsChart.update();
+        }
+    </script>
+</body>
+</html>

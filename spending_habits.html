@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Spending Habits</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="app-header">
+            <h1>Spending Habits</h1>
+        </div>
+        <canvas id="habitsChart" style="width: 00%; height: 50%;"></canvas>
+    </div>
+    <script>
+        const habitsCtx = document.getElementById('habitsChart').getContext('2d');
+        new Chart(habitsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Gas', 'Food', 'Grocery', 'Entertainment'],
+                datasets: [{
+                    data: [150, 300, 200, 50], // Added "Entertainment" with $50 spent
+                    backgroundColor: ['#7A0019', '#B71C1C', '#D32F2F', '#FF6F61']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        enabled: true,
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label;
+                                const data = {
+                                    'Gas': ['Shell: $50', 'Exxon: $100'],
+                                    'Food': ['Chick-fil-A: $10', 'Chipotle: $15', 'McDonald\'s: $20', 'Starbucks: $25', 'Panera Bread: $18', 'Pizza Hut: $30', 'Subway: $22', 'KFC: $35', 'Taco Bell: $15', 'Domino\'s: $20', 'Buffalo Wild Wings: $40', 'Dunkin\' Donuts: $20', 'Five Guys: $30'],
+                                    'Grocery': ['Walmart: $100', 'Whole Foods: $100'],
+                                    'Entertainment': ['Movie: $20', 'Spotify: $30']
+                                };
+                                return data[label] || [];
+                                
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { display: true },
+                    y: { display: true, beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
