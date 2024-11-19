@@ -19,7 +19,7 @@ body {
 }
 .phone-frame-specific{
     width: 1920px;
-    height: 1400px;
+    height: 1650px;
     border-radius: 1px;
     background-color: #b7b7b7;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -93,7 +93,7 @@ body {
     padding: 10px;
     margin-top: 0px;
     width: 100%;
-    max-width: 320px; /* Limit to phone screen size */
+    max-width: 900px; /* Limit to phone screen size */
     height: auto;
 }
 
