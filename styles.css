@@ -83,8 +83,8 @@ body {
     border: 1px solid #ccc;
 }
 #recapChart {
-    max-width: 350px;
-    max-height: 330px;
+    max-width: 1920px;
+    max-height: 700px;
 }
 .chat-box {
     display: flex;
