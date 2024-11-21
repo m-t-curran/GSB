@@ -165,7 +165,7 @@ body {
     color: white; /* Text color */
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
-    padding: 5px 10px; /* Button size */
+    padding: 25px 25px; /* Button size */
     font-size: 12px; /* Button text size */
     cursor: pointer; /* Pointer cursor */
 }
