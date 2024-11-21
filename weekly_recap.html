@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="grand-habit">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
@@ -11,15 +8,21 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="phone-frame-specific">
+    <div class="phone-frame" style="position: relative;">
+        <!-- Header Section -->
         <div class="app-header">
+            <div class="back-button">
+                <button onclick="goBackHome()">Back Home</button>
+            </div>
             <h1>Weekly Recap</h1>
         </div>
-        <canvas id="recapChart" style="width: 120%; height: 90%;"></canvas>
+
+        <!-- Chart Section -->
+        <canvas id="recapChart" style="width: 80%; height: 40%;"></canvas>
 
         <!-- Chat Box Section -->
         <div class="chat-box">
-            <h1>Ask a Question:</h1>
+            <h3>Ask a Question:</h3>
             <select id="questionSelect" class="rounded-select">
                 <option value="">Select a question</option>
                 <option value="fastFoodTime">At what time of day did I eat out the most?</option>
@@ -33,11 +36,13 @@
     </div>
 
     <script>
-        // Data for the Weekly Recap Chart
+        function goBackHome() {
+            window.location.href = 'index.html'; // Adjust home page filename if needed
+        }
+
         const spendingData = [20, 50, 30, 80, 60, 40, 70]; // Example spending for Sun to Sat
         const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-        // Detailed Spending Data for Each Day
         const detailedSpending = {
             'Sun': ['Shell: $20', 'Starbucks: $5'],
             'Mon': ['Chick-fil-A: $10', 'Skylight Cinema: $15', 'Crisp: $25'],
@@ -48,7 +53,6 @@
             'Sat': ['Shopping: $50', 'Dinner: $20']
         };
 
-        // Initialize the Line Chart
         const recapCtx = document.getElementById('recapChart').getContext('2d');
         new Chart(recapCtx, {
             type: 'line',
@@ -70,9 +74,9 @@
                         enabled: true,
                         callbacks: {
                             label: function(context) {
-                                const day = context.label; // Get the day (e.g., "Mon")
-                                const details = detailedSpending[day] || []; // Get spending details for the day
-                                return [`Total: $${context.raw}`].concat(details); // Combine total with details
+                                const day = context.label;
+                                const details = detailedSpending[day] || [];
+                                return [`Total: $${context.raw}`].concat(details);
                             }
                         }
                     }
@@ -84,7 +88,6 @@
             }
         });
 
-        // Function to Get Chat Box Answer
         function getAnswer() {
             const question = document.getElementById('questionSelect').value;
             const response = document.getElementById('chatResponse');
@@ -106,9 +109,42 @@
     </script>
 
     <style>
+        .app-header {
+            display: flex;
+            justify-content: center; /* Center-align the header text */
+            align-items: center; /* Align items vertically */
+            width: 100%; /* Full width of the phone frame */
+            height: 100px; /* Set a fixed height for the header */
+            background-color: #ffffff; /* Ensure the header has a white background */
+            position: relative; /* Allow elements inside to be positioned absolutely */
+            box-sizing: border-box; /* Include padding in width calculation */
+            z-index: 2; /* Ensure the header is above other content */
+            margin: 0; /* Remove unnecessary margins */
+        }
+
+        .back-button {
+            position: absolute; /* Position it within the header */
+            top: 10px; /* Align vertically */
+            left: 10px; /* Align horizontally */
+            z-index: 3; /* Ensure it stays above other elements */
+        }
+
+        .back-button button {
+            background-color: #7f0909; /* Match theme */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            border-radius: 3px; /* Slightly rounded corners */
+            padding: 5px 10px; /* Button size */
+            font-size: 8px; /* Button text size */
+            cursor: pointer; /* Pointer cursor for interactivity */
+        }
+
+        .back-button button:hover {
+            background-color: #8E1A1A; /* Darker red on hover */
+        }
+
         .chat-box {
-            padding: 1px;
-            margin-top: 4px;
+            padding: 10px;
         }
 
         .rounded-select {
@@ -136,7 +172,13 @@
         .response-text {
             color: #8E1A1A;
             font-weight: bold;
-            margin-top: 5px;
+            margin-top: 10px;
+            font-size: 14px; /* Adjust text size */
+            width: 70%; /* Fit inside the phone */
+            max-width: 300px;
+            word-wrap: break-word;
+            text-align: center;
+            margin: 0 auto; /* Center within the phone frame */
         }
     </style>
 </body>

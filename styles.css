@@ -1,39 +1,34 @@
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #F5F5F5;
-    margin: 0;
+    background-color: #000000;
+    margin: 1;
     font-family: Arial, Helvetica, sans-serif, sans-serif;
 }
 
 .phone-frame {
     width: 1920px;
     height: 800px;
-    border-radius: 1px;
-    background-color: #b7b7b7;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-}
-.phone-frame-specific{
-    width: 1920px;
-    height: 1550px;
-    border-radius: 1px;
-    background-color: #b7b7b7;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 0.1px;
+    background-color: #771717;
+    box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
     overflow: hidden;
 }
 
 .app-header {
-    background-color: #ffffff;
-    color: rgb(123, 4, 4);
+    background-color: #ffffff; /* Ensure the background is white */
+    color: rgb(168, 6, 6);
     text-align: center;
-    padding: 5px;
+    padding: 10px 0; /* Adjust padding for better spacing */
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center-align the header text */
     align-items: center;
+    width: 100%; /* Ensure the header spans the full width of the phone frame */
+    position: relative; /* Ensure it stays positioned within the phone frame */
+    z-index: 2; /* Ensure the header stays above other elements */
+    box-sizing: border-box; /* Include padding in the element's width/height */
 }
 
 .logo {
@@ -41,24 +36,19 @@ body {
     height: 60px;
 }
 
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-
 .home-buttons {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: calc(100% - 150px);
+    height: calc(100% - 175px);
     padding: 10px;
 }
 
 .home-btn {
     width: 80%;
-    padding: 15px;
-    background-color: #910a0a;
+    padding: 20px;
+    background-color: #ac1f2d;
     color: white;
     border: none;
     border-radius: 25px;
@@ -72,6 +62,7 @@ body {
 .home-btn:hover {
     background-color: #8E1A1A;
 }
+
 #goalsChart {
     max-width: 200px; /* Adjust width */
     max-height: 200px; /* Adjust height */
@@ -82,10 +73,12 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
 }
+
 #recapChart {
-    max-width: 1920px;
-    max-height: 700px;
+    max-width: 350px;
+    max-height: 330px;
 }
+
 .chat-box {
     display: flex;
     flex-direction: column;
@@ -93,7 +86,7 @@ body {
     padding: 10px;
     margin-top: 0px;
     width: 100%;
-    max-width: 900px; /* Limit to phone screen size */
+    max-width: 320px; /* Limit to phone screen size */
     height: auto;
 }
 
@@ -130,4 +123,55 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better appearance */
 }
 
+.back-button {
+    position: absolute;
+    top: 15px; /* Adjust distance from the top */
+    left: 10px; /* Adjust distance from the left */
+    z-index: 10; /* Ensure it stays above the header */
+}
 
+.back-button button {
+    background-color: #B71C1C; /* Button background */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Button size */
+    font-size: 12px; /* Button text size */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.back-button button:hover {
+    background-color: #8E1A1A; /* Hover effect */
+}
+.back-button {
+    position: absolute; /* Position it within the header */
+    top: 10px; /* Align vertically */
+    left: 10px; /* Align horizontally */
+    z-index: 3; /* Ensure it stays above other elements */
+}
+
+.back-button button {
+    background-color: #8d0808; /* Match theme */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 3px; /* Slightly rounded corners */
+    padding: 5px 10px; /* Button size */
+    font-size: 8px; /* Button text size */
+    cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+.back-button button:hover {
+    background-color: #8E1A1A; /* Darker red on hover */
+}
+.phone-frame {
+    margin: auto; /* Centers the phone */
+    background: none; /* Ensure the phone frame background doesn’t override */
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000000 !important; /* Black background */
+    overflow: hidden; /* Prevent scrollbars if necessary */
+}

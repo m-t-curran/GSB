@@ -3,20 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="grand-habit">
     <title>Rewards</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="phone-frame">
-    <div class="app-header">
-        <h1>Rewards</h1>
+    <div class="phone-frame">
+        <!-- Header Section -->
+        <div class="app-header">
+            <div class="back-button">
+                <button onclick="goBackHome()">Back Home</button>
+            </div>
+            <h1>Rewards</h1>
+        </div>
+
+        <!-- Rewards List -->
+        <div class="rewards-container">
+            <div class="reward-item">
+                <img src="gsblogo.jpeg" alt="Coffee Cup" class="reward-icon">
+                <div>
+                    <h3>Achievement: Met Monthly Spending Goal</h3>
+                    <p>Reward: Free Latte at Onyx Coffee</p>
+                </div>
+            </div>
+            <div class="reward-item">
+                <img src="gsblogo.jpeg" alt="Gift Card" class="reward-icon">
+                <div>
+                    <h3>Achievement: Saved $500 for Travel</h3>
+                    <p>Reward: $25 Amazon Gift Card</p>
+                </div>
+            </div>
+            <div class="reward-item">
+                <img src="gsblogo.jpeg" alt="Concert Ticket" class="reward-icon">
+                <div>
+                    <h3>Achievement: Reduced Food Spending by 20%</h3>
+                    <p>Reward: 10% off Local Concert Tickets</p>
+                </div>
+            </div>
+            <div class="reward-item">
+                <img src="gsblogo.jpeg" alt="Gas Pump" class="reward-icon">
+                <div>
+                    <h3>Achievement: Hit Weekly Gas Budget</h3>
+                    <p>Reward: $10 Gas Station Gift Card</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reward Archive Button -->
+        <button class="archive-btn">View Reward Archive</button>
     </div>
-    <div class="reward-item">Free Onyx Coffee</div>
-    <div class="reward-item">10% off Local Concert Tickets</div>
-    <button class="archive-btn">View Reward Archive</button>
-</div>
+
+    <script>
+        // Function for Back Home Button
+        function goBackHome() {
+            window.location.href = 'index.html'; // Replace with your home page filename
+        }
+    </script>
+
+    <style>
+        /* General Styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FFFFFF; /* White background */
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .phone-frame {
+            width: 375px;
+            height: 620px;
+            border-radius: 40px;
+            background-color: #FFFFFF;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            background-color: #FFFFFF;
+            color: #ac1f2d;
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .back-button button {
+            background-color: #B71C1C;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 10px;
+            font-size: 8px;
+            cursor: pointer;
+        }
+
+        .back-button button:hover {
+            background-color: #8E1A1A;
+        }
+
+        /* Rewards Container */
+        .rewards-container {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spacing between rewards */
+        }
+
+        .reward-item {
+            display: flex; /* Flex layout for icon and text */
+            align-items: center;
+            gap: 10px; /* Spacing between icon and text */
+            background-color: #ac1f2d; /* Maroon background */
+            color: white; /* White text */
+            border-radius: 10px; /* Rounded corners */
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        .reward-item h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px; /* Slightly larger for titles */
+        }
+
+        .reward-item p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .reward-icon {
+            width: 40px; /* Icon size */
+            height: 40px;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+        /* Archive Button */
+        .archive-btn {
+            background-color: #ac1f2d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 20px auto;
+            font-size: 14px;
+            width: 80%;
+            cursor: pointer;
+        }
+
+        .archive-btn:hover {
+            background-color: #8E1A1A;
+        }
+    </style>
 </body>
 </html>

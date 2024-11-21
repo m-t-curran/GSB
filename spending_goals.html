@@ -8,11 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="phone-frame-specific">
+    <div class="phone-frame">
         <div class="app-header">
+            <div class="back-button">
+                <button onclick="goBackHome()">Back Home</button>
+            </div>
             <h1>Spending Goals</h1>
         </div>
-        <center>
         <div class="goal-input-section">
             <h2>Set Weekly Goals</h2>
             <div class="goal-input">
@@ -42,9 +44,13 @@
 
         <!-- Doughnut Chart -->
         <canvas id="goalsChart" style="width: 40%; height: 30%;"></canvas>
-        </center>
     </div>
     <script>
+        // Function for Back Home Button
+        function goBackHome() {
+            window.location.href = 'index.html'; // Replace with your home page filename
+        }
+
         // Initialize the Doughnut Chart
         const goalsCtx = document.getElementById('goalsChart').getContext('2d');
         const goalsChart = new Chart(goalsCtx, {
