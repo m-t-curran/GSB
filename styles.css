@@ -16,7 +16,37 @@ body {
     box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
     overflow: hidden;
 }
-
+.phone-frame-spending-habits {
+    width: 1920px;
+    height: 1200px;
+    border-radius: 0.1px;
+    background-color: #771717;
+    box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
+    overflow: hidden;
+}
+.phone-frame-spending-goals {
+    width: 1920px;
+    height: 1200px;
+    border-radius: 0.1px;
+    background-color: #771717;
+    box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
+    overflow: hidden;
+}
+.phone-frame-weekly {
+    width: 1920px;
+    height: 1200px;
+    border-radius: 0.1px;
+    background-color: #771717;
+    box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
+    overflow: hidden;
+}
+.phone-frame-rewards {
+    width: 2000px;
+    height: 950px;
+    background-color: #771717;
+    box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
+    overflow: hidden;
+}
 .app-header {
     background-color: #ffffff; /* Ensure the background is white */
     color: rgb(168, 6, 6);
