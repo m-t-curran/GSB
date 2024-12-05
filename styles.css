@@ -10,7 +10,7 @@ body {
 
 .phone-frame {
     width: 1920px;
-    height: 890px;
+    height: 95%;
     border-radius: 0.1px;
     background-color: white;
     box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
@@ -26,7 +26,7 @@ body {
 }
 .phone-frame-spending-habits {
     width: 2000px;
-    height: 1600px;
+    height: 95%;
     border-radius: 0.1px;
     background-color: white;
     box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
@@ -34,7 +34,7 @@ body {
 }
 .phone-frame-spending-goals {
     width: 2000px;
-    height: 1600px;
+    height: 95%;
     border-radius: 0.1px;
     background-color: white;
     box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
@@ -42,7 +42,7 @@ body {
 }
 .phone-frame-weekly {
     width: 2000px;
-    height: 1600px;
+    height: 95%;
     border-radius: 0.1px;
     background-color: white;
     box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
@@ -50,7 +50,7 @@ body {
 }
 .phone-frame-rewards {
     width: 1900px;
-    height: 790px;
+    height: 95%;
     background-color: white;
     box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
     overflow: hidden;
