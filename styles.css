@@ -10,7 +10,7 @@ body {
 
 .phone-frame {
     width: 1920px;
-    height: 95%;
+    height: 100%;
     border-radius: 0.1px;
     background-color: white;
     box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
@@ -166,6 +166,8 @@ body {
     top: 15px; /* Adjust distance from the top */
     left: 10px; /* Adjust distance from the left */
     z-index: 10; /* Ensure it stays above the header */
+    height: 40px;
+    width: 50px;
 
 }
 
@@ -174,7 +176,7 @@ body {
     color: white; /* Text color */
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
-    padding: 25px 25px; /* Button size */
+    padding: 30px 30px; /* Button size */
     font-size: 12px; /* Button text size */
     cursor: pointer; /* Pointer cursor */
 }
@@ -194,8 +196,8 @@ body {
     color: white; /* Button text color */
     border: none; /* Remove border */
     border-radius: 3px; /* Slightly rounded corners */
-    padding: 5px 10px; /* Button size */
-    font-size: 8px; /* Button text size */
+    padding: 5px 25px; /* Button size */
+    font-size: 12px; /* Button text size */
     cursor: pointer; /* Pointer cursor for interactivity */
 }
 
