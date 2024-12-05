@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Group Habits</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="phone-frame">
+        <!-- Header Section -->
+        <div class="app-header">
+            <div class="back-button">
+                <button onclick="goBackHome()">Back Home</button>
+            </div>
+            <h1>Group Habits</h1>
+        </div>
+
+        <!-- Group Savings Info -->
+        <div class="group-savings">
+            <h2>Group Savings Progress</h2>
+            <p><strong>Saved:</strong> $1,200</p>
+            <p><strong>Goal:</strong> $2,500</p>
+            <p><strong>Remaining:</strong> $1,300</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 48%; background-color: #B71C1C;">48%</div>
+            </div>
+        </div>
+
+        <!-- Group Shared Expenses Chart -->
+        <canvas id="sharedExpensesChart" style="width: 100%; height: 10%;"></canvas>
+
+    </div>
+
+    <script>
+        // Function for Back Home Button
+        function goBackHome() {
+            window.location.href = 'index.html'; // Replace with your home page filename
+        }
+
+        // Data for the Shared Expenses Chart
+        const sharedExpensesData = {
+            labels: ['Fast Food', 'Gas', 'Clothes'],
+            datasets: [{
+                label: 'Shared Expenses',
+                data: [500, 300, 200], // Example shared expense amounts
+                backgroundColor: ['#FFCC00', '#B71C1C', '#D32F2F']
+            }]
+        };
+
+        // Initialize the Bar Chart
+        const sharedExpensesCtx = document.getElementById('sharedExpensesChart').getContext('2d');
+        new Chart(sharedExpensesCtx, {
+            type: 'bar',
+            data: sharedExpensesData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: $${context.raw}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { display: true, grid: { display: false } },
+                    y: { beginAtZero: true, grid: { display: true } }
+                }
+            }
+        });
+    </script>
+
+    <style>
+        .group-savings {
+            padding: 15px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: center;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 20px;
+            background-color: #F0F0F0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+    </style>
+</body>
+</html>
