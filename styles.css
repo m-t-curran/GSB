@@ -17,12 +17,13 @@ body {
     overflow: hidden;
 }
 .phone-frame-group {
-    width: 1920px;
-    height: 100%;
-    border-radius: 0.1px;
-    background-color: white;
-    box-shadow: 0 10px 20px rgba(104, 103, 103, 0.3);
-    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 20px; /* Space at the bottom */
+    box-sizing: border-box; /* Ensures padding is included in the height */
 }
 .phone-frame-spending-habits {
     width: 2000px;

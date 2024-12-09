@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Grand Group</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -27,7 +27,7 @@
     <!-- Shared Expenses Section -->
     <div class="shared-section">
         <h2 class="section-title">Compared Expenses</h2>
-        <canvas id="sharedExpensesChart" style="max-width: 100%; height: 045px;"></canvas>
+        <canvas id="sharedExpensesChart" style="max-width: 100%; max-height: 250px;"></canvas>
     </div>
 
     <!-- Progress Bar Section -->
@@ -41,7 +41,9 @@
 
     <!-- Shared Savings Chart Section -->
     <div class="shared-section">
-        <canvas id="pieChart" style="max-height: 238px; min-height: 100px; max-width: 100%" ></canvas>
+        <center>
+        <canvas id="pieChart" style="max-height: 20%; max-width: 100%" ></canvas>
+        </center>
     </div>
 </div>
 
@@ -50,6 +52,17 @@
     function goBackHome() {
         window.location.href = 'index.html'; // Adjust the path as necessary
     }
+    function adjustCanvasSize() {
+        const canvasList = document.querySelectorAll('canvas');
+        const screenHeight = window.innerHeight;
+
+        canvasList.forEach((canvas) => {
+            canvas.style.maxHeight = `${screenHeight * 0.3}px`; // 30% of screen height
+        });
+    }
+
+    window.addEventListener('resize', adjustCanvasSize);
+    adjustCanvasSize(); // Call on initial load
 
     // Shared Expenses Chart
     const sharedExpensesCtx = document.getElementById('sharedExpensesChart').getContext('2d');
@@ -116,7 +129,7 @@
             ]
         },
         options: {
-            responsive: true,
+            responsive: false,
             plugins: {
                 legend: {
                     position: 'bottom'
@@ -138,15 +151,13 @@
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    .phone-frame {
-        width: 375px;
-        height: 700px;
-        border-radius: 25px;
-        background-color: white;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        padding: 15px;
+    canvas {
+        max-width: 100%;
+        max-height: 250px; /* Adjust as necessary */
+        min-height: 150px; /* Ensures it's visible on smaller screens */
+        box-sizing: border-box;
     }
+
 
     .app-header {
         background-color: white;
