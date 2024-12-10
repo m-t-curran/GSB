@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Group</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="phone-frame-group">
+        <!-- Header Section -->
+        <div class="app-header">
+            <div class="back-button">
+                <button onclick="goBackHome()">Back</button>
+            </div>
+            <h1>Grand Group</h1>
+        </div>
+
+        <!-- Navigation Section -->
+        <div class="navigation-buttons">
+            <button class="nav-btn">Friends</button>
+            <button class="nav-btn">Chat</button>
+            <button class="nav-btn">Connect ></button>
+        </div>
+
+        <!-- Shared Expenses Section -->
+        <div class="shared-section">
+            <h2 class="section-title">Compared Expenses</h2>
+            <canvas id="sharedExpensesChart" style="max-width: 620px; height: 045px;"></canvas>
+        </div>
+
+        <!-- Progress Bar Section -->
+        <div class="progress-bar-section">
+            <h3>Shared Savings</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p id="progress-percentage">48% Saved</p>
+        </div>
+
+        <!-- Shared Savings Chart Section -->
+        <div class="shared-section">
+            <canvas id="pieChart" style="max-height: 300px; width: 200px" ></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Function for Back Home Button
+        function goBackHome() {
+            window.location.href = 'index.html'; // Adjust the path as necessary
+        }
+
+        // Shared Expenses Chart
+        const sharedExpensesCtx = document.getElementById('sharedExpensesChart').getContext('2d');
+        new Chart(sharedExpensesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Gas', 'Shopping', 'Entertainment', 'Food'],
+                datasets: [
+                    {
+                        label: 'Average Gen Z',
+                        data: [75, 100, 150, 50],
+                        backgroundColor: 'rgba(183, 28, 28, 0.8)'
+                    },
+                    {
+                        label: 'You',
+                        data: [90, 150, 100, 65],
+                        backgroundColor: 'rgba(255, 112, 67, 0.8)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { beginAtZero: true, grid: { display: true } }
+                }
+            }
+        });
+
+        // Function to Update the Progress Bar
+        function updateProgressBar(saved, goal) {
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercentage = document.getElementById('progress-percentage');
+            
+            // Calculate the percentage saved
+            const percentage = Math.min((saved / goal) * 100, 100); // Cap at 100%
+            
+            // Update the progress bar width and text
+            progressBar.style.width = `${percentage}%`;
+            progressPercentage.textContent = `${Math.round(percentage)}% Saved`;
+        }
+
+        // Example Usage
+        const savedAmount = 14089; // Example: Amount saved so far
+        const goalAmount = 25000; // Example: Savings goal
+        updateProgressBar(savedAmount, goalAmount);
+
+        // Pie Chart for Shared Savings
+        const pieChartCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieChartCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Flight', 'Hotel', 'Food'],
+                datasets: [
+                    {
+                        data: [5000, 7000, 2089],
+                        backgroundColor: ['#FF5733', '#C70039', '#900C3F']
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+
+    <style>
+        /* General Styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .phone-frame {
+            width: 375px;
+            height: 700px;
+            border-radius: 25px;
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            padding: 15px;
+        }
+
+        .app-header {
+            background-color: #ac1f2d;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .back-button button {
+            position: absolute;
+            left: 10px;
+            background-color: #8E1A1A;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .back-button button:hover {
+            background-color: #6C1A1A;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+        }
+
+        .nav-btn {
+            background-color: #ac1f2d;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background-color: #8E1A1A;
+        }
+
+        .shared-section {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .section-title {
+            color: white;
+            background-color: #ac1f2d;
+            padding: 5px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar-section {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .progress-bar-container {
+            width: 90%;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #ac1f2d;
+            text-align: center;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</body>
+</html>
